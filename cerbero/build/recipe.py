@@ -78,6 +78,12 @@ class BuildSteps(object):
     GEN_LIBFILES = (N_('Gen Library File'), 'gen_library_file')
     MERGE = (N_('Merge universal binaries'), 'merge')
 
+    # Freeze/Unfreeze steps
+    FETCH_BINARY = (N_('Fetch Binary'), 'fetch_binary')
+    EXTRACT_BINARY = (N_('Extract Binary'), 'extract_binary')
+    GEN_BINARY = (N_('Generate Binary'), 'generate_binary')
+    UPLOAD_BINARY = (N_('Upload Binary'), 'upload_binary')
+
     def __new__(klass):
         return [BuildSteps.FETCH, BuildSteps.EXTRACT,
                 BuildSteps.CONFIGURE, BuildSteps.COMPILE, BuildSteps.INSTALL,
