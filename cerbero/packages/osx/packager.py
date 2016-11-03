@@ -55,6 +55,11 @@ class PostProcessingMixin():
         for path in ['bin', 'lib', 'libexec']:
             relocator.relocate_dir(path)
 
+        # This is a hack to allow Chronojump to link and be ran
+        # without problems. This will go away when we update Cerbero
+        relocator.change_id_2(tmp_dir + "/lib/libfreetype.6.dylib", "@rpath/lib/libfreetype.6.dylib")
+        relocator.change_id_2(tmp_dir + "/lib/libharfbuzz.0.dylib", "@rpath/lib/libharfbuzz.0.dylib")
+
 
 class FrameworkHeadersMixin(object):
 

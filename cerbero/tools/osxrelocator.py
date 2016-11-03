@@ -21,7 +21,6 @@ import os
 
 from cerbero.utils import shell
 
-
 INT_CMD = 'install_name_tool'
 OTOOL_CMD = 'otool'
 
@@ -59,6 +58,10 @@ class OSXRelocator(object):
             return
         cmd = '%s -id "%s" "%s"' % (INT_CMD, id, object_file)
         shell.call(cmd, fail=False)
+
+    def change_id_2(self, object_file, id):
+        cmd = '%s -id "%s" "%s"' % (INT_CMD, id, object_file)
+        shell.call(cmd)
 
     def change_libs_path(self, object_file):
         try:
